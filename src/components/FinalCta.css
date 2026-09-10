@@ -1,0 +1,75 @@
+.finalcta {
+  background: var(--bg-cream);
+}
+
+.finalcta__card {
+  background: var(--wine);
+  color: var(--on-dark);
+  border-radius: 28px;
+  padding: clamp(36px, 6vw, 80px);
+}
+
+.finalcta__title {
+  margin: 22px 0 40px;
+  font-size: clamp(30px, 4.6vw, 62px);
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  max-width: 20ch;
+}
+
+.finalcta__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(246, 236, 233, 0.22);
+  padding-top: 34px;
+}
+
+.finalcta__contacts {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 40px;
+}
+
+.finalcta__contacts a,
+.finalcta__static {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15.5px;
+  color: var(--on-dark);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s var(--ease);
+}
+
+.finalcta__contacts a:hover {
+  border-bottom-color: rgba(246, 236, 233, 0.7);
+}
+
+.finalcta__contacts svg {
+  width: 20px;
+  height: 20px;
+  color: var(--violet-soft);
+  flex-shrink: 0;
+}
+
+.finalcta__btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 620px) {
+  .finalcta__contacts {
+    grid-template-columns: 1fr;
+  }
+  .finalcta__row {
+    align-items: stretch;
+  }
+  .finalcta__btn {
+    width: 100%;
+  }
+}
