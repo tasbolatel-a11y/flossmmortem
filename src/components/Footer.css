@@ -1,14 +1,14 @@
 .site-footer {
   background: var(--wine);
   color: var(--on-dark);
-  padding: clamp(56px, 8vw, 92px) var(--page-x) 32px;
+  padding: clamp(36px, 5vw, 64px) var(--page-x) 28px;
 }
 
 .site-footer__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 0.9fr);
   gap: clamp(32px, 5vw, 72px);
-  padding-bottom: clamp(36px, 5vw, 56px);
+  padding-bottom: clamp(24px, 3.5vw, 40px);
   border-bottom: 1px solid rgba(246, 236, 233, 0.18);
 }
 

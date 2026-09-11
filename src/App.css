@@ -1,15 +1,15 @@
 /* ============ Layout primitives ============ */
 main {
-  overflow: clip;
+  overflow-x: clip;
 }
 
 .section {
-  padding: clamp(72px, 11vw, 156px) var(--page-x);
+  padding: clamp(44px, 6.5vw, 96px) var(--page-x);
 }
 
 .section--tight {
-  padding-top: clamp(48px, 7vw, 92px);
-  padding-bottom: clamp(48px, 7vw, 92px);
+  padding-top: clamp(32px, 4.5vw, 60px);
+  padding-bottom: clamp(32px, 4.5vw, 60px);
 }
 
 .container {

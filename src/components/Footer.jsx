@@ -1,9 +1,9 @@
 import './Footer.css'
 
 const NAV = [
-  { label: 'О проектах', href: '#overview' },
-  { label: 'ИИ-агенты', href: '#projects' },
-  { label: 'Результаты', href: '#results' },
+  { label: 'Об AI-Sana', href: '#about-ai-sana' },
+  { label: 'Этапы', href: '#stages' },
+  { label: 'Проекты', href: '#projects' },
   { label: 'Сроки', href: '#timeline' },
   { label: 'Контакты', href: '#contacts' },
 ]
@@ -49,7 +49,7 @@ export default function Footer() {
           © 2025 Казахский национальный медицинский университет имени
           С.Д. Асфендиярова
         </span>
-        <span>ИИ-агенты для ВУЗа</span>
+        <span>AI-Sana · ИИ-проекты КазНМУ</span>
       </div>
     </footer>
   )

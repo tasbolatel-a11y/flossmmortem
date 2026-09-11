@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import './Header.css'
 
 const NAV = [
-  { label: 'О проектах', href: '#overview' },
-  { label: 'ИИ-агенты', href: '#projects' },
-  { label: 'Результаты', href: '#results' },
-  { label: 'Сроки', href: '#timeline' },
+  { label: 'Об AI-Sana', href: '#about-ai-sana' },
+  { label: 'Направления', href: '#directions' },
+  { label: 'Основные проекты', href: '#projects' },
+  { label: 'Все проекты', href: '#all-projects' },
+  { label: 'Этапы', href: '#stages' },
   { label: 'Контакты', href: '#contacts' },
 ]
 
@@ -64,7 +65,7 @@ export default function Header() {
         href="#projects"
         className="btn btn--primary btn--sm header-cta"
       >
-        Посмотреть проекты
+        Смотреть проекты
       </a>
 
       <button

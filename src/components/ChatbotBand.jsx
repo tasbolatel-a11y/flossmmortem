@@ -36,8 +36,8 @@ export default function ChatbotBand() {
               <span className="badge__dot" />
               Проект реализован
             </span>
-            <a href="#timeline" className="btn btn--outline-light">
-              Сроки других проектов
+            <a href="#contacts" className="btn btn--outline-light">
+              Связаться с университетом
             </a>
           </div>
         </Reveal>

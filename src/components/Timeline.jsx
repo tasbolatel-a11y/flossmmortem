@@ -25,8 +25,11 @@ export default function Timeline() {
       <div className="container">
         <Reveal className="timeline__head">
           <p className="eyebrow">Сроки</p>
-          <h2 className="h2">Сроки и реализация</h2>
-          <p className="lead">Все проекты реализуются в 2025 году.</p>
+          <h2 className="h2">Сроки первых проектов</h2>
+          <p className="lead">
+            Первая волна ИИ-проектов КазНМУ реализуется в 2025 году. Сроки более
+            новых решений указаны в карточках выше.
+          </p>
         </Reveal>
 
         <div className="timeline__grid">
