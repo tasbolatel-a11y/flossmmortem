@@ -72,14 +72,49 @@ function ProjectCard({ p, index, active }) {
         <p className="pcard__desc">{p.desc}</p>
         <p className="pcard__benefit">{p.benefit}</p>
 
-        {p.status && (
-          <div className="pcard__foot">
-            <span className={`pcard__status pcard__status--${p.status.tone}`}>
-              <span className="pcard__status-dot" />
-              {p.status.label}
-            </span>
-          </div>
-        )}
+        <div className="pcard__foot">
+          {p.url ? (
+            <a
+              className="pcard__link"
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Перейти к проекту: ${p.name}`}
+            >
+              <span>Перейти к проекту</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          ) : (
+            <button
+              type="button"
+              className="pcard__link"
+              disabled
+              aria-disabled="true"
+              aria-label={`Перейти к проекту: ${p.name}`}
+            >
+              <span>Перейти к проекту</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 17 17 7M9 7h8v8"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
+        </div>
       </div>
     </article>
   )

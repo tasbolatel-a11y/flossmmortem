@@ -9,7 +9,7 @@
   align-items: stretch;
 }
 
-/* ---- media ---- */
+/* Изображение */
 .about-ai__media {
   display: flex;
   min-height: 340px;
@@ -25,8 +25,10 @@
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid var(--line-strong);
-  box-shadow: 0 40px 80px -44px rgba(40, 22, 88, 0.4);
-  background: linear-gradient(150deg, #2c1852 0%, #42247a 55%, #1b1038 100%);
+
+  /* Тёмный фиолетовый фон удалён */
+  background: transparent;
+
   --shift: 0px;
 }
 
@@ -36,28 +38,22 @@
   display: block;
   object-fit: contain;
   transform: translateY(var(--shift));
-  filter: grayscale(1) contrast(1.05) brightness(0.92);
+
+  /* Изображение показывается в оригинальных цветах */
+  filter: none;
 }
 
-/* violet duotone so the illustration sits in the site palette */
+/* Фиолетовый слой поверх изображения отключён */
 .about-ai__duotone {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(150deg, rgba(66, 36, 122, 0.62), rgba(107, 70, 179, 0.42) 55%, rgba(27, 16, 56, 0.72)),
-    radial-gradient(120% 90% at 12% 12%, rgba(221, 208, 246, 0.28), transparent 55%);
-  mix-blend-mode: multiply;
+  display: none;
 }
 
+/* Нижнее затемнение изображения отключено */
 .about-ai__figure::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(27, 16, 56, 0.28));
-  pointer-events: none;
+  display: none;
 }
 
-/* ---- content ---- */
+/* Контент */
 .about-ai__content {
   display: flex;
   flex-direction: column;
@@ -69,12 +65,13 @@
 }
 
 .about-ai__text {
+  max-width: 54ch;
   font-size: clamp(15px, 1.2vw, 17px);
   line-height: 1.6;
   color: var(--ink-soft);
-  max-width: 54ch;
 }
 
+/* Направления */
 .about-ai__directions-wrap {
   margin-top: 14px;
   scroll-margin-top: 96px;
@@ -89,11 +86,11 @@
 }
 
 .about-ai__directions {
-  list-style: none;
-  margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  margin-top: 12px;
+  list-style: none;
 }
 
 .dir {
@@ -111,17 +108,17 @@
 .dir__n {
   font-size: 22px;
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   color: var(--wine);
-  font-variant-numeric: tabular-nums;
 }
 
 .dir__t {
+  margin-bottom: 5px;
   font-size: clamp(17px, 1.5vw, 20px);
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--ink);
-  margin-bottom: 5px;
 }
 
 .dir__d {
@@ -130,15 +127,17 @@
   color: var(--ink-soft);
 }
 
-/* ---- responsive: photo first, then text ---- */
+/* Планшет и телефон */
 @media (max-width: 920px) {
   .about-ai__grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
+
   .about-ai__media {
     min-height: 220px;
   }
+
   .about-ai__figure img {
     transform: none;
   }
