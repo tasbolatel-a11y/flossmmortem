@@ -1,5 +1,5 @@
 import Reveal from './Reveal.jsx'
-import { PROJECTS } from './projectsData.jsx'
+import { FEATURED_PROJECTS } from './projectsData.jsx'
 import './Overview.css'
 
 export default function Overview() {
@@ -18,7 +18,7 @@ export default function Overview() {
         </Reveal>
 
         <ul className="overview__grid">
-          {PROJECTS.map((p, i) => (
+          {FEATURED_PROJECTS.map((p, i) => (
             <Reveal
               as="li"
               key={p.name}

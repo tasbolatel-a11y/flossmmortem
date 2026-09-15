@@ -1,15 +1,13 @@
 /*
   Single source of truth — 12 unique KazNMU AI projects.
 
-  · <AllProjects /> renders all 12 as a tile grid (fields: kicker / short / status).
-  · <Projects /> renders `PROJECTS.filter(p => p.featured)` — the 5 original
-    projects — in detail (fields: purpose / features / result / term / stat).
+  · <ProjectsCarousel /> renders all 12 as a grid (fields: kicker / short / status).
+  · <Overview /> renders `FEATURED_PROJECTS` (`featured: true`) — the 6 main
+    detailed projects, numbered 01–06.
 
-  Projects 1–5: the site's original projects (texts preserved).
-  Projects 6–12: from the Word file «Сводная информация по ИИ-проектам КазНМУ»
-  — category = the document's "Направление" column; status = only what the
-  document states; texts condensed without changing facts or numbers.
-  All 12 are KazNMU projects.
+  Display order and the `featured` set were last revised together; both the
+  Overview section and the ProjectsCarousel grid read PROJECTS in this same
+  order, so keep them in sync if either changes.
 */
 
 import {
@@ -30,9 +28,77 @@ import {
 } from './mockupsExtra.jsx'
 
 export const PROJECTS = [
-  /* ---------- 1–5 · original projects, shown in detail ---------- */
+  /* ---------- 1–6 · featured, shown in detail in Overview ---------- */
   {
     featured: true,
+    name: 'ANaMED Info',
+    url: '',
+    kicker: 'Администрирование',
+    short: 'Отвечает по официальным документам вуза на трёх языках.',
+    desc: 'Многоязычный веб-ассистент по учебным и рабочим процессам КазНМУ. Отвечает только на основе официальных документов и указывает источник.',
+    benefit: 'Информация доступна круглосуточно; в материалах заявлена экономия до 70% рутинных обращений.',
+    status: { label: 'Пилотное внедрение', tone: 'pilot' },
+    Mock: AnamedInfoMock,
+  },
+  {
+    featured: true,
+    name: 'ANaMED CARES',
+    url: '',
+    kicker: 'Экзамены и апелляции',
+    short: 'Независимая оценка результатов вступительных экзаменов при апелляциях.',
+    desc: 'ИИ-агент для независимой оценки результатов вступительных экзаменов при апелляциях. Работает и как инструмент эксперта, и как тренажёр для подготовки.',
+    benefit: 'Модель обучена на 16 452 записях по 46 дисциплинам, точность оценки — 89%.',
+    status: { label: 'Модель обучена, внедрение приостановлено', tone: 'paused' },
+    Mock: AnamedCaresMock,
+  },
+  {
+    featured: true,
+    name: 'OlympiadPro',
+    url: '',
+    kicker: 'Образование',
+    short: 'Платформа онлайн-олимпиад с AI-генерацией тестов и прокторингом.',
+    desc: 'Платформа полного цикла для онлайн-олимпиад: регистрация, задания, AI-генерация тестов, цифровой прокторинг и итоговая аналитика.',
+    benefit: 'Пилот в секции «Иммунология» — 247 участников из 3 стран на 3 языках.',
+    status: { label: 'Рабочий пилот проведён', tone: 'pilot' },
+    Mock: OlympiadProMock,
+  },
+  {
+    featured: true,
+    name: 'Virtual Microbiology Lab',
+    url: '',
+    kicker: 'Образование',
+    short: 'Виртуальная лаборатория по микробиологии для практики.',
+    desc: 'Виртуальная лаборатория по микробиологии для практико-ориентированного обучения в цифровой среде.',
+    benefit: 'Повышает доступность лабораторной практики и позволяет безопасно повторять учебные сценарии.',
+    status: { label: 'В разработке', tone: 'dev' },
+    Mock: MicroLabMock,
+  },
+  {
+    featured: true,
+    name: 'IRBIS — Analysis Hub',
+    url: '',
+    kicker: 'Наука и аналитика',
+    short: 'Управляемый цикл анализа данных с защитой и воспроизводимостью.',
+    desc: 'Модуль управляемого цикла анализа данных: подготовка данных, воспроизводимый статистический анализ, визуализация и отчёты в защищённом окружении.',
+    benefit: 'Ускоряет анализ и отчётность, повышает воспроизводимость расчётов.',
+    status: { label: 'Пилот / в проработке', tone: 'pilot' },
+    Mock: IrbisAnalysisMock,
+  },
+  {
+    featured: true,
+    name: 'IRBIS — Research Hub',
+    url: '',
+    kicker: 'Наука и публикации',
+    short: 'Поиск научных источников и подготовка публикаций с проверкой цитат.',
+    desc: 'Модуль поиска и систематизации научных источников, подготовки обзоров и рукописей с корректным цитированием и проверкой утверждений.',
+    benefit: 'Сокращает время подготовки публикаций и повышает проверяемость текстов.',
+    status: { label: 'Пилот / в проработке', tone: 'pilot' },
+    Mock: IrbisResearchMock,
+  },
+
+  /* ---------- 7–12 · rest of the catalogue ---------- */
+  {
+    featured: false,
     name: 'TopicMaster',
     url: '',
     kicker: 'Генератор тем работ',
@@ -53,7 +119,7 @@ export const PROJECTS = [
     stat: { k: '−50%', t: 'времени на выбор темы' },
   },
   {
-    featured: true,
+    featured: false,
     name: 'ИИ-помощник для поиска учебных материалов',
     url: '',
     kicker: 'Интеллектуальный поиск',
@@ -72,7 +138,7 @@ export const PROJECTS = [
     stat: { k: 'сент. 2025', t: 'срок реализации' },
   },
   {
-    featured: true,
+    featured: false,
     name: 'ИИ-переводчик медицинских терминов',
     url: '',
     kicker: 'Перевод терминов',
@@ -92,7 +158,7 @@ export const PROJECTS = [
     stat: { k: '−30%', t: 'времени на перевод' },
   },
   {
-    featured: true,
+    featured: false,
     name: 'ИИ-тьютор для подготовки к экзаменам',
     url: '',
     kicker: 'Тесты и карточки',
@@ -112,7 +178,7 @@ export const PROJECTS = [
     stat: { k: 'дек. 2025', t: 'срок реализации' },
   },
   {
-    featured: true,
+    featured: false,
     name: 'Чат-бот',
     url: '',
     kicker: 'Взаимодействие с вузом',
@@ -130,69 +196,8 @@ export const PROJECTS = [
     term: 'Проект реализован',
     stat: { k: '−30%', t: 'времени ожидания' },
   },
-
-  /* ---------- 6–12 · projects from the Word file ---------- */
   {
-    name: 'ANaMED Info',
-    url: '',
-    kicker: 'Администрирование',
-    short: 'Отвечает по официальным документам вуза на трёх языках.',
-    desc: 'Многоязычный веб-ассистент по учебным и рабочим процессам КазНМУ. Отвечает только на основе официальных документов и указывает источник.',
-    benefit: 'Информация доступна круглосуточно; в материалах заявлена экономия до 70% рутинных обращений.',
-    status: { label: 'Пилотное внедрение', tone: 'pilot' },
-    Mock: AnamedInfoMock,
-  },
-  {
-    name: 'ANaMED CARES',
-    url: '',
-    kicker: 'Экзамены и апелляции',
-    short: 'Независимая оценка результатов вступительных экзаменов при апелляциях.',
-    desc: 'ИИ-агент для независимой оценки результатов вступительных экзаменов при апелляциях. Работает и как инструмент эксперта, и как тренажёр для подготовки.',
-    benefit: 'Модель обучена на 16 452 записях по 46 дисциплинам, точность оценки — 89%.',
-    status: { label: 'Модель обучена, внедрение приостановлено', tone: 'paused' },
-    Mock: AnamedCaresMock,
-  },
-  {
-    name: 'OlympiadPro',
-    url: '',
-    kicker: 'Образование',
-    short: 'Платформа онлайн-олимпиад с AI-генерацией тестов и прокторингом.',
-    desc: 'Платформа полного цикла для онлайн-олимпиад: регистрация, задания, AI-генерация тестов, цифровой прокторинг и итоговая аналитика.',
-    benefit: 'Пилот в секции «Иммунология» — 247 участников из 3 стран на 3 языках.',
-    status: { label: 'Рабочий пилот проведён', tone: 'pilot' },
-    Mock: OlympiadProMock,
-  },
-  {
-    name: 'Virtual Microbiology Lab',
-    url: '',
-    kicker: 'Образование',
-    short: 'Виртуальная лаборатория по микробиологии для практики.',
-    desc: 'Виртуальная лаборатория по микробиологии для практико-ориентированного обучения в цифровой среде.',
-    benefit: 'Повышает доступность лабораторной практики и позволяет безопасно повторять учебные сценарии.',
-    status: { label: 'В разработке', tone: 'dev' },
-    Mock: MicroLabMock,
-  },
-  {
-    name: 'IRBIS — Analysis Hub',
-    url: '',
-    kicker: 'Наука и аналитика',
-    short: 'Управляемый цикл анализа данных с защитой и воспроизводимостью.',
-    desc: 'Модуль управляемого цикла анализа данных: подготовка данных, воспроизводимый статистический анализ, визуализация и отчёты в защищённом окружении.',
-    benefit: 'Ускоряет анализ и отчётность, повышает воспроизводимость расчётов.',
-    status: { label: 'Пилот / в проработке', tone: 'pilot' },
-    Mock: IrbisAnalysisMock,
-  },
-  {
-    name: 'IRBIS — Research Hub',
-    url: '',
-    kicker: 'Наука и публикации',
-    short: 'Поиск научных источников и подготовка публикаций с проверкой цитат.',
-    desc: 'Модуль поиска и систематизации научных источников, подготовки обзоров и рукописей с корректным цитированием и проверкой утверждений.',
-    benefit: 'Сокращает время подготовки публикаций и повышает проверяемость текстов.',
-    status: { label: 'Пилот / в проработке', tone: 'pilot' },
-    Mock: IrbisResearchMock,
-  },
-  {
+    featured: false,
     name: 'ИИ для анализа рукописных историй болезни',
     url: '',
     kicker: 'OCR историй болезни',
