@@ -1,13 +1,10 @@
 /*
   Single source of truth — 12 unique KazNMU AI projects.
 
-  · <ProjectsCarousel /> renders all 12 as a grid (fields: kicker / short / status).
-  · <Overview /> renders `FEATURED_PROJECTS` (`featured: true`) — the 6 main
-    detailed projects, numbered 01–06.
-
-  Display order and the `featured` set were last revised together; both the
-  Overview section and the ProjectsCarousel grid read PROJECTS in this same
-  order, so keep them in sync if either changes.
+  · <Overview /> and <ProjectsCarousel /> both render the full `PROJECTS`
+    array, in this same order, numbered 01–12 by index.
+  · `featured` (the first 6) is kept for potential future use but is not
+    currently read by any component.
 */
 
 import {

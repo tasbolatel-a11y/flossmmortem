@@ -56,8 +56,59 @@
   overflow: hidden;
 }
 
+/* ---- hover (mouse/trackpad only) ---- */
+@media (hover: hover) and (pointer: fine) {
+  .pcard {
+    transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  }
+
+  .pcard__media .mock {
+    transition: transform 300ms ease;
+  }
+
+  .pcard__num,
+  .pcard__kicker {
+    transition: color 300ms ease;
+  }
+
+  .pcard:hover {
+    transform: translateY(-6px);
+    border-color: var(--violet);
+    box-shadow: 0 24px 48px -24px rgba(107, 70, 179, 0.4);
+  }
+
+  .pcard:hover .pcard__media .mock {
+    transform: scale(1.03);
+  }
+
+  .pcard:hover .pcard__num {
+    color: var(--violet);
+  }
+
+  .pcard:hover .pcard__kicker {
+    color: var(--wine);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcard,
+  .pcard__media .mock,
+  .pcard__num,
+  .pcard__kicker {
+    transition: none;
+  }
+
+  .pcard:hover {
+    transform: none;
+  }
+
+  .pcard:hover .pcard__media .mock {
+    transform: none;
+  }
+}
+
 .pcard--enter {
-  animation: pcardIn 450ms var(--ease) both;
+  animation: pcardIn 450ms var(--ease) backwards;
 }
 
 @keyframes pcardIn {
