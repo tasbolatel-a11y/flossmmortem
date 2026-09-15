@@ -6,3 +6,7 @@ dist/
 .claude/
 test-results/
 playwright-report/
+
+.mcp.json
+playwright.config.js
+tests/
