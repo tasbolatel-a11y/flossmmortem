@@ -3,8 +3,7 @@ import './Footer.css'
 const NAV = [
   { label: 'Об AI-Sana', href: '#about-ai-sana' },
   { label: 'Этапы', href: '#stages' },
-  { label: 'Проекты', href: '#projects' },
-  { label: 'Сроки', href: '#timeline' },
+  { label: 'Проекты', href: '#all-projects' },
   { label: 'Контакты', href: '#contacts' },
 ]
 

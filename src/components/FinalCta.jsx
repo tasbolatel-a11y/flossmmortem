@@ -60,7 +60,7 @@ export default function FinalCta() {
               })}
             </ul>
 
-            <a href="#projects" className="btn btn--outline-light finalcta__btn">
+            <a href="#all-projects" className="btn btn--outline-light finalcta__btn">
               Посмотреть проекты
               <svg className="btn__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                 <path

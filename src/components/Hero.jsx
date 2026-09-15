@@ -80,7 +80,7 @@ export default function Hero() {
                 <path d="M9 3.75v10.5M4 9l5 5 5-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <a href="#projects" className="btn btn--hero-ghost">
+            <a href="#all-projects" className="btn btn--hero-ghost">
               Смотреть проекты
               <svg className="btn__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                 <path d="M3.75 9h10.5M9.75 4l4.5 5-4.5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />

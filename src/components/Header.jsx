@@ -4,7 +4,6 @@ import './Header.css'
 const NAV = [
   { label: 'Об AI-Sana', href: '#about-ai-sana' },
   { label: 'Направления', href: '#directions' },
-  { label: 'Основные проекты', href: '#projects' },
   { label: 'Все проекты', href: '#all-projects' },
   { label: 'Этапы', href: '#stages' },
   { label: 'Контакты', href: '#contacts' },
@@ -62,7 +61,7 @@ export default function Header() {
 
     <div className="site-header__actions">
       <a
-        href="#projects"
+        href="#all-projects"
         className="btn btn--primary btn--sm header-cta"
       >
         Смотреть проекты
@@ -109,7 +108,7 @@ export default function Header() {
     </nav>
 
     <a
-      href="#projects"
+      href="#all-projects"
       className="btn btn--primary mobile-nav__cta"
       onClick={() => setOpen(false)}
     >
